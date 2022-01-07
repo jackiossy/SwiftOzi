@@ -125,6 +125,34 @@ let hexadecimalDouble = 0xC.3p0   //十六进制浮点型字面量
 let stringL = "Hello\tWorld\n\n菜鸟教程官网：\'http://www.runoob.com\'"
 print(stringL)
 
+//bool字面量 真假
+let if_login = true
+let if_try =  false
+
+//算数运算符
+
+/**
+ 算术运算符
+ 以下表格列出了 Swift 语言支持的算术运算符，其中变量 A 为 10，变量 B 为 20：
+ 运算符    描述    实例
+ +    加号    A + B 结果为 30
+ −    减号    A − B 结果为 -10
+ *    乘号    A * B 结果为 200
+ /    除号    B / A 结果为 2
+ %    求余    B % A 结果为 0
+ */
+
+// swift3中取消了 -- ++
+
+let num_a = 100
+let num_b = 50
+var result_num = num_a + num_b
+print("运算结果为\(result_num)")
+
+
+
+
+
 
 
 

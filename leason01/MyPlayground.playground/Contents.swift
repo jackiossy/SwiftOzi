@@ -149,10 +149,40 @@ let num_b = 50
 var result_num = num_a + num_b
 print("运算结果为\(result_num)")
 
+//比较运算符
+/**
+ 比较运算符 返回bool类型
+ 以下表格列出了 Swift 语言支持的比较运算符，其中变量 A 为 10，变量 B 为 20：
+ 运算符    描述    实例
+ ==    等于    (A == B) 为 false。
+ !=    不等于    (A != B) 为 true。
+ >    大于    (A > B) 为 false。
+ <    小于    (A < B) 为 true。
+ >=    大于等于    (A >= B) 为 false。
+ <=    小于等于    (A <= B) 为 true。
+ */
 
 
+var A = 10
+var B = 20
 
+print("A == B 结果为：\(A == B)")
+print("A != B 结果为：\(A != B)")
+print("A > B 结果为：\(A > B)")
+print("A < B 结果为：\(A < B)")
+print("A >= B 结果为：\(A >= B)")
+print("A <= B 结果为：\(A <= B)")
 
+//逻辑运算符
+/*
+ 逻辑运算符
+ 以下表格列出了 Swift 语言支持的逻辑运算符，其中变量 A 为 true，变量 B 为 false：
+ 运算符    描述                                          实例
+ &&    逻辑与。如果运算符两侧都为 TRUE 则为 TRUE。           (A && B) 为 false。
+ ||    逻辑或。 如果运算符两侧至少有一个为 TRUE 则为 TRUE。   (A || B) 为 true。
+ !    逻辑非。布尔值取反，使得true变false，false变true。     !(A && B) 为 true。
+ 
+ */
 
 
 

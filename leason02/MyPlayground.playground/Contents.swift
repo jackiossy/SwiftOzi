@@ -81,5 +81,11 @@ let intstring = "100"
 let int100:Int? =  Int(intstring)
 print("int100的值为\(int100 ?? 0)")
 
+//字符串分割数组
+let fullname = "First Last"
+print("value is \(fullname[fullname.startIndex])")
+
+
+
 
 

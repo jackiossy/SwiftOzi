@@ -182,7 +182,25 @@ print("A <= B 结果为：\(A <= B)")
  ||    逻辑或。 如果运算符两侧至少有一个为 TRUE 则为 TRUE。   (A || B) 为 true。
  !    逻辑非。布尔值取反，使得true变false，false变true。     !(A && B) 为 true。
  
- */
+*/
+var A1 = true
+var B1 = false
+
+print("A && B 结果为：\(A1 && B1)")
+print("A || B 结果为：\(A1 || B1)")
+print("!A 结果为：\(!A1)")
+print("!B 结果为：\(!B1)")
+
+
+// 位运算符 操作二进制
+var A2 = 60  // 二进制为 0011 1100
+var B2 = 13 // 二进制为 0000 1101
+
+print("A&B 结果为：\(A2&B2)")
+print("A|B 结果为：\(A2|B2)")
+print("A^B 结果为：\(A2^B2)")
+print("~A 结果为：\(~A2)")
+
 
 
 

@@ -82,10 +82,71 @@ let int100:Int? =  Int(intstring)
 print("int100的值为\(int100 ?? 0)")
 
 //字符串分割数组
-let fullname = "First Last"
-print("value is \(fullname[fullname.startIndex])")
+let fullName = "First Larst"
+print("value is \(fullName[fullName.startIndex])")
 
+//components 以特定字符分割字符串 返回一个数组
+let fullNameArr = fullName.components(separatedBy: "r")
 
+print(fullNameArr[0])
+print(fullNameArr[1])
 
+//字符串的遍历 for in的字符串后面 加上 reaversed 方法，变为逆序遍历
+var i = 0
+for char in fullName.reversed() {
+    print("\(i):\(char)")
+    i += 1
+}
 
+let str = "HHKB YYDS !"
+
+print("---- 基于索引的正序遍历 ----")
+for i in 0..<str.count {
+    let ch: Character = str[str.index(str.startIndex, offsetBy: i)]
+    print("\(i): \(ch)")
+}
+
+print("---- 基于索引的逆序遍历 ----")
+//for i in stride(from: str.count - 1, to: -1, by: -1) {
+for i in stride(from: str.count - 1, through: 0, by: -1) {
+    let ch: Character = str[str.index(str.startIndex, offsetBy: i)]
+    print("\(i): \(ch)")
+}
+
+print("---- 基于EnumeratedSequence的遍历 ----")
+for (i, ch) in str.enumerated() {
+    print("\(i): \(ch)")
+}
+
+//Character 字符类型
+// 只能存储一个字符，如果存储更多的字符会报错
+let char1: Character = "A"
+let char2: Character = "B"
+
+print("char1 的值为 \(char1)")
+print("char2 的值为 \(char2)")
+
+// Error， 下面的写法会报错， 字符不可以为空 中间有空格也不行 🙅‍♂️
+//let char1: Character = " "
+
+//字符串遍历
+for ch in "Runoob" {
+    print(ch)
+}
+
+//字符串拼接，除了+ 还有 append方法
+var strA = "swift"
+var strB = " YYDS"
+
+strA.append(strB)
+print (strA)
+
+var charC = "!"
+strA.append(contentsOf: charC)
+print(strA)
+
+strA.append(contentsOf: "HHKB YYDS")
+print(strA)
+
+//数组 相同类型的多个值
 

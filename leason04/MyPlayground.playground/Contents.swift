@@ -93,8 +93,60 @@ if let bounds = minMaxOption(array: [8,-5,2,109,3,71]) {
     print(bounds)
 }
 
-// 隐式返回函数
+//可变参数函数
+func addAllInt (intaray intArray: Int...) -> Int {
+    var result = 0
+    for i in intArray {
+        result += i
+    }
+    return result
+}
+print(addAllInt(intaray:1,2,3,100))
+
+//输入输出函数, 改变外部变量
+//交换a和b
+//函数参数 inout 可修改外部变量
+var a = 7
+var b = 13
+print("a=\(a),b=\(b)")
+
+func exchangeAB (a: inout Int, b: inout Int) {
+    var temp = 0
+    temp = a
+    a = b
+    b = temp
+}
+
+exchangeAB(a: &a, b: &b)
+print("a=\(a),b=\(b)")
+
+//函数类型
+/**
+ 这两个函数的类型是 (Int, Int) -> Int，可以解读为:
+ “这个函数类型有两个 Int 型的参数并返回一个 Int 型的值”。
+ 
+ 这个函数的类型是：() -> Void，或者叫“没有参数，并返回 Void 类型的函数”。
+
+ */
 
 
+func addTwoInts (a: Int,b: Int) -> Int {
+    return a + b
+}
 
+//如何使用函数类型
 
+var mathFunction: (Int, Int) -> Int = addTwoInts
+
+print(mathFunction(1,1))
+
+//swift 自动函数类型推断 , 可以不写函数的类型
+var mathFunction01 = addTwoInts //mathFunction01 被推断为 (Int, Int) -> Int类型
+print(mathFunction01(10,20))
+
+//函数类型作为参数类型
+func printMathResult(_ mathFunction:(Int ,Int) -> Int, _ a: Int, _ b: Int) {
+    print("result : \(mathFunction(a,b))")
+}
+
+printMathResult(mathFunction01, 30, 30)

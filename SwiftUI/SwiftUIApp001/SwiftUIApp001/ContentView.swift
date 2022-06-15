@@ -11,22 +11,41 @@ struct ContentView: View {
     let url = URL(string: "https://jsonplaceholder.typicode.com/users")!
     
     @State var users: [User] = []
+    @State var search_text = ""
     
     var body: some View {
         
         NavigationView {
             List(users){ user in
                 VStack(alignment: .leading, spacing: 4) {
+                    
                     Text(user.name)
                     Text(user.email)
                         .font(.caption)
                 }
+                .listRowSeparatorTint(.red)
             }
             // adding refresh control...
             // Indicator will show until async task finished...
             .refreshable(action: {
-                
+                await fetchUsers()
             })
+            
+            //add search Bar ...
+            .searchable(text: $search_text, suggestions: {
+                ForEach(users.filter{user in
+                    search_text == "" ? true:
+                    user.email.lowercased().contains(search_text.lowercased())
+                    
+                }
+                
+                ){users in
+                    Text(users.email)
+                }
+            })
+            
+            
+            
             .navigationTitle("Pull to Refresh")
         }
         

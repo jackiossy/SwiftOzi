@@ -24,8 +24,9 @@ struct Home: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Button{
-                        
+                    NavigationLink {
+                        FilteredDetailView()
+                            .environmentObject(expenseViewModel)
                     } label: {
                         Image(systemName: "hexagon.fill")
                             .foregroundColor(.gray)
@@ -38,6 +39,7 @@ struct Home: View {
                             .background(Color.white,in:RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
                     }
+
                 }
                 ExpenseCardView()
                 TransactionsView()
@@ -53,7 +55,7 @@ struct Home: View {
     // MARK: Transactions View
     @ViewBuilder
     func TransactionsView() -> some View {
-        VStack {
+        VStack (spacing: 15){
             Text("Transactions")
                 .font(.title2.bold())
                 .opacity(0.7)

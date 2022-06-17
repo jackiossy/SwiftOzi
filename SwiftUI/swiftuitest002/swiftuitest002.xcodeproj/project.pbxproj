@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1028A5285C54EB00F7FDC2 /* FilteredDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1028A4285C54EB00F7FDC2 /* FilteredDetailView.swift */; };
 		4E3AA70E2859C37F008FBFD7 /* swiftuitest002App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AA70D2859C37F008FBFD7 /* swiftuitest002App.swift */; };
 		4E3AA7102859C37F008FBFD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AA70F2859C37F008FBFD7 /* ContentView.swift */; };
 		4E3AA7122859C387008FBFD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E3AA7112859C387008FBFD7 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E1028A4285C54EB00F7FDC2 /* FilteredDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDetailView.swift; sourceTree = "<group>"; };
 		4E3AA70A2859C37F008FBFD7 /* swiftuitest002.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftuitest002.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3AA70D2859C37F008FBFD7 /* swiftuitest002App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftuitest002App.swift; sourceTree = "<group>"; };
 		4E3AA70F2859C37F008FBFD7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				4EF6D1952859C7B40042633D /* Home.swift */,
 				94F08313285B6C8D001B1960 /* TransactionCardView.swift */,
+				4E1028A4285C54EB00F7FDC2 /* FilteredDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EF6D1982859C8540042633D /* Expense.swift in Sources */,
+				4E1028A5285C54EB00F7FDC2 /* FilteredDetailView.swift in Sources */,
 				4E3AA7102859C37F008FBFD7 /* ContentView.swift in Sources */,
 				4EF6D1962859C7B40042633D /* Home.swift in Sources */,
 				4EF6D19A2859CBEB0042633D /* ExpenseViewModel.swift in Sources */,

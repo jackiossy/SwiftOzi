@@ -39,6 +39,8 @@ struct Home: View {
                             .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
                     }
                 }
+                ExpenseCardView()
+                TransactionsView()
             }
             .padding()
         }
@@ -48,7 +50,103 @@ struct Home: View {
         }
     }
     
+    // MARK: Transactions View
+    @ViewBuilder
+    func TransactionsView() -> some View {
+        VStack {
+            Text("Transactions")
+                .font(.title2.bold())
+                .opacity(0.7)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom)
+            
+            ForEach(expenseViewModel.expenses) {expense in
+                // MARK: Transactions Card View
+                TransactionCardView(expense: expense)
+                    .environmentObject(expenseViewModel)
+                
+            }
+        }
+        .padding(.top)
+    }
+    
+    
     // Mark: Expense Card View...
+    @ViewBuilder
+    func ExpenseCardView()->some View {
+        GeometryReader{proxy in
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(
+                    .linearGradient(colors: [
+                        Color("Gradient1"),
+                        Color("Gradient2"),
+                        Color("Gradient3"),
+                    ], startPoint: .topLeading, endPoint: .bottomTrailing)
+                )
+            
+            VStack(spacing:15) {
+                VStack(spacing:15) {
+                    // MARK: Currently Going Month date String
+                    Text(expenseViewModel.currentMonthDateString())
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                    
+                    // MARK: Current Month Expenses Price
+                    Text(expenseViewModel.convertExpensesToCurrency(expenses: expenseViewModel.expenses))
+                        .font(.system(size: 35, weight: .bold))
+                        .lineLimit(1)
+                        .padding(.bottom, 5)
+                }
+                .offset(y: -10)
+                
+                HStack(spacing: 15) {
+                    Image(systemName: "arrow.down")
+                        .font(.caption.bold())
+                        .foregroundColor(Color("Green"))
+                        .frame(width: 30 , height: 30)
+                        .background(.white.opacity(0.7), in: Circle())
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Income")
+                            .font(.caption)
+                            .opacity(0.7)
+                        
+                        Text(expenseViewModel.convertExpensesToCurrency(expenses: expenseViewModel.expenses, type: .income))
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
+                            .fixedSize()
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Image(systemName: "arrow.up")
+                        .font(.caption.bold())
+                        .foregroundColor(Color("Red"))
+                        .frame(width: 30 , height: 30)
+                        .background(.white.opacity(0.7), in: Circle())
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Expenses")
+                            .font(.caption)
+                            .opacity(0.7)
+                        
+                        Text(expenseViewModel.convertExpensesToCurrency(expenses: expenseViewModel.expenses, type: .expense))
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                            .lineLimit(1)
+                            .fixedSize()
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.trailing)
+                .offset(y:15)
+            }
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        }
+        .frame(height:220)
+        .padding(.top)
+    }
     
 }
 

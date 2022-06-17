@@ -20,10 +20,11 @@ struct Expense: Identifiable,Hashable {
 enum ExpenseType: String {
     case income = "income"
     case expense = "expense"
+    case all = "ALL"
 }
 
 var sample_expenses: [Expense] = [
-    Expense(id: "MagicKeyboard", remark: "99", amount: 99, date: Date(timeIntervalSince1970: 165287245), type: .expense, color: "Yellow"),
-    Expense(id: "Food", remark: "99", amount: 19, date: Date(timeIntervalSince1970: 165287245), type: .expense, color: "Yellow"),
-    Expense(id: "Trackpad2", remark: "99", amount: 99, date: Date(timeIntervalSince1970: 165287245), type: .expense, color: "Yellow")
+    Expense(id: "MagicKeyboard", remark: "MagicKeyboard", amount: 99, date: Date(timeIntervalSince1970: 165287245), type: .expense, color: "Yellow"),
+    Expense(id: "Food", remark: "Food", amount: 19, date: Date(timeIntervalSince1970: 165287245), type: .expense, color: "Green"),
+    Expense(id: "Trackpad2", remark: "Trackpad2", amount: 99, date: Date(timeIntervalSince1970: 165287245), type: .expense, color: "Red")
 ]

@@ -14,6 +14,7 @@
 		944A88FD2A41D75800185E53 /* SwiftUI004Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A88FC2A41D75800185E53 /* SwiftUI004Tests.swift */; };
 		944A89072A41D75800185E53 /* SwiftUI004UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A89062A41D75800185E53 /* SwiftUI004UITests.swift */; };
 		944A89092A41D75800185E53 /* SwiftUI004UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A89082A41D75800185E53 /* SwiftUI004UITestsLaunchTests.swift */; };
+		944A89162A41DA2000185E53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944A89152A41DA2000185E53 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		944A89022A41D75800185E53 /* SwiftUI004UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUI004UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		944A89062A41D75800185E53 /* SwiftUI004UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI004UITests.swift; sourceTree = "<group>"; };
 		944A89082A41D75800185E53 /* SwiftUI004UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI004UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		944A89152A41DA2000185E53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				944A88EB2A41D75600185E53 /* SwiftUI004App.swift */,
 				944A88ED2A41D75600185E53 /* ContentView.swift */,
+				944A89152A41DA2000185E53 /* DataModel.swift */,
 				944A88EF2A41D75800185E53 /* Assets.xcassets */,
 				944A88F12A41D75800185E53 /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				944A88EE2A41D75600185E53 /* ContentView.swift in Sources */,
 				944A88EC2A41D75600185E53 /* SwiftUI004App.swift in Sources */,
+				944A89162A41DA2000185E53 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

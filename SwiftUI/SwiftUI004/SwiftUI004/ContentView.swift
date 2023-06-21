@@ -9,15 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var user1 = DataModel.user1
+    @State private var content1 = DataModel.content_array.last!
+
+    
     @ViewBuilder var header_view: some View {
+        
+
         HStack {
-            Image("header1")
+            Image(user1.headerImage)
                 .resizable()
                 .frame(width: 50, height: 50)
                 .cornerRadius(25)
             
             VStack(alignment: .leading, spacing: 5) {
-                Text("燃烧的大鹅")
+                Text(user1.nickname)
                     
                 Text("10 hours ago. Form iPhone 14 Pro")
                     .font(.caption2).foregroundColor(.gray)
@@ -36,17 +42,36 @@ struct ContentView: View {
         .padding()
     }
     
+    
+
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
+                VStack(alignment:.leading) {
                     header_view
                     
-                    Text("往往人心里的矛盾就会是你人生路上的阻碍，如果你想赢，而你心里的自我暗示会认为自己不会赢，那么你认为你赢的几率有多大？如果你认为你自己与众不同，那么你的心态会使你在人生路上走的不会犹豫。")
+                    Text(content1.content_text)
+                        .padding()
+                        .padding(.top, -15)
+                    
+                    Grid {
+                        ForEach(content1.images.indices) { img in
+                            GridRow {
+                                Image(content1.images[img])
+                                    .resizable()
+                                    .scaledToFill()
+                                    .padding()
+                                    .padding(.top,-25)
+                            }
+                        }
+                    }
+                    
                 }
                 
             }
             .navigationTitle("推荐")
+            
+
 
         }
 

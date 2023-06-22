@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
+    
     var user1: User
 
     var body: some View {
@@ -31,8 +32,13 @@ struct HeaderView: View {
                 
             } label: {
                 Image(systemName: "plus")
-                Text("follow")
-            }.buttonStyle(.borderedProminent)
+                Text("关注")
+                    .font(.body)
+            }
+            .buttonStyle(.bordered)
+            .background(Color.white)
+            .cornerRadius(20)
+
             
         }
         .padding()
@@ -45,6 +51,7 @@ struct ContentView: View {
     @State private var c_array = DataModel.content_array
     let img_width = ( UIScreen.main.bounds.width-40)/3
     let single_img_width =  UIScreen.main.bounds.width - 20
+//    let single_img_width =  UIScreen.main.bounds.width
 
 
     
@@ -54,30 +61,28 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     
-                    ForEach (0..<c_array.count) { c_index in
+                    ForEach (c_array) { blog in
                         VStack(alignment:.leading) {
-                            HeaderView(user1:c_array[c_index].user)
+                            HeaderView(user1: blog.user)
                             
-                            Text(c_array[c_index].content_text)
+                            Text(blog.content_text)
                                 .padding()
                                 .padding(.top, -15)
                             
                             Grid(horizontalSpacing: 5) {
-                                ForEach(0..<getGridRowCount(image_count: c_array[c_index].images.count)) { index in
+                                ForEach(0..<getGridRowCount(image_count: blog.images.count), id: \.self) { index in
                                     
                                     GridRow {
-                                        ForEach(0..<getRowItemCount(gridrow_count: index, img_count: c_array[c_index].images.count)) { column in
+                                        ForEach(0..<getRowItemCount(gridrow_count: index, img_count: blog.images.count), id: \.self) { column in
                                             
                                             ZStack {
-                                                Image(c_array[c_index].images[(index*3 + column)])
+                                                Image(blog.images[(index*3 + column)])
 
-                                                    .resizable() //可调整大小
-                                               
-                                                    .frame(width: c_array[c_index].images.count == 1 ? single_img_width:img_width, height: c_array[c_index].images.count == 1 ? single_img_width:img_width)
+                                                    .resizable()
+                                                    .frame(width: blog.images.count == 1 ? single_img_width:img_width, height: blog.images.count == 1 ? single_img_width:img_width)
                              
                                             }
                
-        //                                        .padding()
                                         }
                               
                                     }
@@ -89,7 +94,47 @@ struct ContentView: View {
                             .padding()
                             
                             Divider()
+                                .padding(.top,-10)
+
+                            HStack() {
+                                
+                                Spacer()
+                                
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "rectangle.portrait.and.arrow.forward")
+                                    Text("1.2K")
+                                }
+                                Spacer()
+
+                                Button {
+                                    
+                                } label: {
+                                    
+                                    Image(systemName: "ellipsis.message")
+                                    Text("23.2K")
+                                }
+                                Spacer()
+
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "hand.thumbsup")
+                                    Text("10W")
+                                }
+                                Spacer()
+
+                            }
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .padding(.top, -5)
                             
+                             
+                            Rectangle()
+                                .fill(Color("spactor"))
+                                
+
                         }
 
                     }

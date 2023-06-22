@@ -14,7 +14,7 @@ struct User: Equatable, Hashable {
     var des: String
 }
 
-struct BlogContent: Equatable, Hashable {
+struct BlogContent: Identifiable, Hashable {
     var id: String
     var user: User
     var content_text: String

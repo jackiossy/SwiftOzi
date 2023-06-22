@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    @State private var user1 = DataModel.user1
-    @State private var content1 = DataModel.content_array.last!
+struct HeaderView: View {
+    var user1: User
 
-    
-    @ViewBuilder var header_view: some View {
+    var body: some View {
         
-
         HStack {
             Image(user1.headerImage)
                 .resizable()
@@ -41,41 +37,100 @@ struct ContentView: View {
         }
         .padding()
     }
+
+}
+
+struct ContentView: View {
     
+    @State private var c_array = DataModel.content_array
+    let img_width = ( UIScreen.main.bounds.width-40)/3
+    let single_img_width =  UIScreen.main.bounds.width - 20
+
+
     
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment:.leading) {
-                    header_view
+                VStack {
                     
-                    Text(content1.content_text)
-                        .padding()
-                        .padding(.top, -15)
-                    
-                    Grid {
-                        ForEach(content1.images.indices) { img in
-                            GridRow {
-                                Image(content1.images[img])
-                                    .resizable()
-                                    .scaledToFill()
-                                    .padding()
-                                    .padding(.top,-25)
+                    ForEach (0..<c_array.count) { c_index in
+                        VStack(alignment:.leading) {
+                            HeaderView(user1:c_array[c_index].user)
+                            
+                            Text(c_array[c_index].content_text)
+                                .padding()
+                                .padding(.top, -15)
+                            
+                            Grid(horizontalSpacing: 5) {
+                                ForEach(0..<getGridRowCount(image_count: c_array[c_index].images.count)) { index in
+                                    
+                                    GridRow {
+                                        ForEach(0..<getRowItemCount(gridrow_count: index, img_count: c_array[c_index].images.count)) { column in
+                                            
+                                            ZStack {
+                                                Image(c_array[c_index].images[(index*3 + column)])
+
+                                                    .resizable() //可调整大小
+                                               
+                                                    .frame(width: c_array[c_index].images.count == 1 ? single_img_width:img_width, height: c_array[c_index].images.count == 1 ? single_img_width:img_width)
+                             
+                                            }
+               
+        //                                        .padding()
+                                        }
+                              
+                                    }
+                                    .padding(.top,-3)
+                                }
                             }
+                            .padding(.top,-25)
+
+                            .padding()
+                            
+                            Divider()
+                            
                         }
+
                     }
-                    
+
                 }
                 
             }
-            .navigationTitle("推荐")
+            .navigationTitle("热门")
             
 
 
         }
 
     }
+    
+    // MARK: get row count
+    func getGridRowCount(image_count: Int) ->Int {
+        
+        let num1 = image_count/3
+        let num2 = image_count%3
+        
+        if num2 == 0 {
+            return num1
+        }
+        return num1+1
+        
+    }
+    
+    // MARK: get every row count
+    func getRowItemCount(gridrow_count: Int, img_count: Int) -> Int {
+        let num1 = img_count/3
+        let num2 = img_count%3
+        
+        if gridrow_count < num1 {
+            return 3
+        }
+        
+        return num2
+    }
+    
+
 }
 
 struct ContentView_Previews: PreviewProvider {

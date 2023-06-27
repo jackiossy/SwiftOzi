@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUI004App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HotListView()
         }
     }
 }

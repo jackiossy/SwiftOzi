@@ -12,6 +12,7 @@ struct User: Equatable, Hashable {
     var nickname: String
     var headerImage: String
     var des: String
+    var followed: Bool
 }
 
 struct BlogContent: Identifiable, Hashable {
@@ -24,11 +25,11 @@ struct BlogContent: Identifiable, Hashable {
 }
 
 class DataModel {
-    static let user1 = User.init(id: UUID().uuidString, nickname: "Rogers", headerImage: "header5", des: "Apple Dev.")
-    static let user2 = User.init(id: UUID().uuidString, nickname: "Cyber Punk", headerImage: "header2", des: "苹果开发者")
-    static let user3 = User.init(id: UUID().uuidString, nickname: "Eric Lockley", headerImage: "header3", des: "苹果开发者")
-    static let user4 = User.init(id: UUID().uuidString, nickname: "東山くるみ", headerImage: "header4", des: "苹果开发者")
-    static let user5 = User.init(id: UUID().uuidString, nickname: "spécial", headerImage: "header5", des: "苹果开发者")
+    static let user1 = User.init(id: UUID().uuidString, nickname: "Rogers", headerImage: "header5", des: "Apple Dev.",followed:true)
+    static let user2 = User.init(id: UUID().uuidString, nickname: "Cyber Punk", headerImage: "header2", des: "苹果开发者",followed:false)
+    static let user3 = User.init(id: UUID().uuidString, nickname: "Eric Lockley", headerImage: "header3", des: "苹果开发者",followed:false)
+    static let user4 = User.init(id: UUID().uuidString, nickname: "東山くるみ", headerImage: "header4", des: "苹果开发者",followed:false)
+    static let user5 = User.init(id: UUID().uuidString, nickname: "spécial", headerImage: "header5", des: "苹果开发者",followed:false)
 
     static let content_array = [
         BlogContent.init(id: UUID().uuidString, user: user1, content_text: "那叫一个地地道道~ 迪迪豆豆~", images:  ["c5_1","c5_2","c5_3","c5_4"], nice_count: 10, replay_count: 10),

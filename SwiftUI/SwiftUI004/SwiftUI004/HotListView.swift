@@ -7,32 +7,53 @@
 
 import SwiftUI
 
+
+
+ 
 struct HeaderView: View {
     
     var user1: User
-
+    
+    //: MARK:This is a mark.
+    //:## This is a  markdown title
+    //: TODO: complited user information screen.
+    //: FIXME: this need to fix.
+    
+    @State var isShowUserInfo: Bool = false
+    
     var body: some View {
+        
         
         HStack {
             Image(user1.headerImage)
                 .resizable()
                 .frame(width: 50, height: 50)
                 .cornerRadius(25)
-            
+                .onTapGesture {
+                    isShowUserInfo = true
+                }
             VStack(alignment: .leading, spacing: 5) {
                 Text(user1.nickname)
                     
                 Text("10 hours ago. Form iPhone 14 Pro")
-                    .font(.caption2).foregroundColor(.gray)
+                    . font(.caption2).foregroundColor(.gray)
             }
+            // .fullScreenCover is full screen page.
+            .fullScreenCover(isPresented: $isShowUserInfo) {
+                UserInfoScreen(userID: user1.id)
+            }
+                   
+            
+     
             
             Spacer()
             
             Button {
-                
+
+
             } label: {
-                Image(systemName: "plus")
-                Text("关注")
+                Image(systemName: user1.followed ? "suit.heart.fill":"plus")
+                Text(user1.followed ? "已关注":"关注")
                     .font(.body)
             }
             .buttonStyle(.bordered)
@@ -46,15 +67,13 @@ struct HeaderView: View {
 
 }
 
-struct ContentView: View {
+struct HotListView: View {
     
     @State private var c_array = DataModel.content_array
+    
+    
     let img_width = ( UIScreen.main.bounds.width-40)/3
     let single_img_width =  UIScreen.main.bounds.width - 20
-//    let single_img_width =  UIScreen.main.bounds.width
-
-
-    
 
     var body: some View {
         NavigationStack {
@@ -65,9 +84,16 @@ struct ContentView: View {
                         VStack(alignment:.leading) {
                             HeaderView(user1: blog.user)
                             
-                            Text(blog.content_text)
-                                .padding()
-                                .padding(.top, -15)
+                            NavigationLink {
+                                BlogDetailView(blog_id: blog.id)
+                            } label: {
+                                Text(blog.content_text)
+                                    .padding()
+                                    .padding(.top, -15)
+                                    .foregroundColor(.black)
+                            }
+
+                 
                             
                             Grid(horizontalSpacing: 5) {
                                 ForEach(0..<getGridRowCount(image_count: blog.images.count), id: \.self) { index in
@@ -143,7 +169,6 @@ struct ContentView: View {
                 
             }
             .navigationTitle("热门")
-            
 
 
         }
@@ -178,8 +203,8 @@ struct ContentView: View {
 
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HotListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HotListView().previewDevice(.iPhone14Pro)
     }
 }

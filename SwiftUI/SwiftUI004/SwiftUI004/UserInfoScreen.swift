@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserInfoScreen: View {
     
-    var userID: String = ""
+    var 👩: String = ""
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -19,7 +19,7 @@ struct UserInfoScreen: View {
                 .font(.largeTitle)
                 .bold()
             
-            Text("userID:\(userID)")
+            Text("userID:\(👩)")
                 .font(.caption)
                 .foregroundColor(.gray)
                 .bold()

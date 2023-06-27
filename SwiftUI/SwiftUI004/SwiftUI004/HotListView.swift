@@ -40,7 +40,7 @@ struct HeaderView: View {
             }
             // .fullScreenCover is full screen page.
             .fullScreenCover(isPresented: $isShowUserInfo) {
-                UserInfoScreen(userID: user1.id)
+                UserInfoScreen(👩: user1.id)
             }
                    
             

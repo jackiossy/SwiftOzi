@@ -11,6 +11,10 @@ struct UserInfoScreen: View {
     
     var 👩: String = ""
     
+     let こんにちは = 250
+     let 안녕하세요 = 2.5
+
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {

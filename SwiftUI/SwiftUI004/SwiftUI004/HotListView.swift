@@ -29,18 +29,11 @@ struct HeaderView: View {
         HStack {
             Image(user1.headerImage)
                 .resizable()
-<<<<<<< HEAD:SwiftUI/SwiftUI004/SwiftUI004/ContentView.swift
-//                .frame(width: 50, height: 50)
-                .frame(minWidth: 50,maxWidth: 100, minHeight: 50, maxHeight: 100)
-                .cornerRadius(.infinity)
-            
-=======
                 .frame(width: 50, height: 50)
                 .cornerRadius(25)
                 .onTapGesture {
                     isShowUserInfo = true
                 }
->>>>>>> cd69485d23babd879ce2e03d83ee8193ef8ce606:SwiftUI/SwiftUI004/SwiftUI004/HotListView.swift
             VStack(alignment: .leading, spacing: 5) {
                 Text(user1.nickname)
                     

@@ -35,7 +35,7 @@ class DataModel {
 
         BlogContent.init(id: UUID().uuidString, user: user2, content_text: "使用小米13Utral拍摄的一些样张", images: ["c2_1","c2_2","c2_3","c2_4","c2_5"], nice_count: 10, replay_count: 10),
         
-        BlogContent.init(id: UUID().uuidString, user: user3, content_text: "给厨子发邮件问下", images: ["c3_1","c3_2","c3_3","c3_4","c3_5","c3_6","c3_7","c3_8","c3_9"], nice_count: 10, replay_count: 10),
+        BlogContent.init(id: UUID().uuidString, user: user3, content_text: "心里种下一颗种子达拉迪达拉~", images: ["c3_1","c3_2","c3_3","c3_4","c3_5","c3_6","c3_7","c3_8","c3_9"], nice_count: 10, replay_count: 10),
         BlogContent.init(id: UUID().uuidString, user: user4, content_text: "使用小米13Utral拍摄的一些样张", images: ["c4_1","c4_2","c4_3"], nice_count: 10, replay_count: 10),
         BlogContent.init(id: UUID().uuidString, user: user5, content_text: "使用小米13Utral拍摄的一些样张", images: ["c5_1","c5_2","c5_3","c5_4"], nice_count: 10, replay_count: 10)
 

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HeaderView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var user1: User
 
     var body: some View {
@@ -16,8 +18,9 @@ struct HeaderView: View {
         HStack {
             Image(user1.headerImage)
                 .resizable()
-                .frame(width: 50, height: 50)
-                .cornerRadius(25)
+//                .frame(width: 50, height: 50)
+                .frame(minWidth: 50,maxWidth: 100, minHeight: 50, maxHeight: 100)
+                .cornerRadius(.infinity)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(user1.nickname)
@@ -36,7 +39,7 @@ struct HeaderView: View {
                     .font(.body)
             }
             .buttonStyle(.bordered)
-            .background(Color.white)
+            .background(colorScheme == .dark ? Color.black :Color.white)
             .cornerRadius(20)
 
             

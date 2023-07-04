@@ -21,31 +21,29 @@ struct UrlStringList {
 }
 
 
-struct SWKWebView: UIViewRepresentable {
+struct  WebView : UIViewRepresentable {
     
-    @Binding var url: String?
+    let screenW:CGFloat = UIScreen.main.bounds.width
+    let screenH:CGFloat = UIScreen.main.bounds.width
     
-    func makeUIView(context: Context) -> WKWebView {
-        let webview = WKWebView()
-        webview.navigationDelegate = context.coordinator
-        return webview
-    }
+    var url : String
     
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        if let url = url, let requetURL = URL(string: url)  {
-            uiView.load(URLRequest(url: requetURL))
-        }
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
+    func makeUIView(context: UIViewRepresentableContext<WebView>) -> WKWebView {
         
-    class Coordinator: NSObject,WKNavigationDelegate {
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            webView.evaluateJavaScript("document.title") { (result, error) in
-                print("didFinish:\(String(describing: result ?? ""))")
-            }
-        }
+        let view = WKWebView()
+        
+        view.frame(forAlignmentRect: CGRect(x: 0, y: 0, width: screenW, height: screenH))
+
+        view.loadHTMLString("<html><head><meta name=\"viewport\"  content=\"width=device-width, initial-scale=1, maximum-scale=1\"/><style>img {width:auto;height:auto;max-width:100%;max-height:90vh;}</style></head><body><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0,Proxima Nova-Regular\">\(url)</body></html>", baseURL: nil)
+ 
+        return view
+        
     }
+    
+
+
+    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebView>) {
+        
+    }
+
 }

@@ -28,15 +28,15 @@ import SwiftUI
 struct NewsDetailModel: Decodable, Hashable {
     var code: Int
     var msg: String
+    var data: News
+}
+
+struct News: Decodable, Hashable {
+    var news: [NewsContent]
+}
+
+struct NewsContent: Decodable, Hashable {
+    var article_content: String
 }
 
 
-struct NewsDetailContent: Decodable, Hashable {
-    var article_id:         Int
-    var article_type:       Int
-    var title:              String
-    var title_long:         String
-    var source:             String
-    var review_count:       Int
-    var editor:             String
-}

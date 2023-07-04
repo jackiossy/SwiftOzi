@@ -20,7 +20,7 @@ struct NewsListScreen: View {
         NavigationStack {
             List {
                 ForEach(viewmodel.news_list, id: \.self) { item in
-                    HStack {
+                     HStack {
                         WebImage(url: URL(string: item.imgs))
                             .resizable()
                             .scaledToFill()
@@ -48,7 +48,7 @@ struct NewsListScreen: View {
             viewmodel.request_news_list()
         }
         .sheet(isPresented: $isSheetDetail) {
-            NewsDetailView(nid: tap_newsid)
+            NewsDetailView(nid: $tap_newsid)
         }
     }
 }

@@ -15,7 +15,8 @@ struct NewsListScreen: View {
     
     @State var isSheetDetail: Bool = false
     @State var tap_newsid: String = ""
-    
+    @State var tap_newstitle: String = ""
+
     var body: some View {
         NavigationStack {
             List {
@@ -35,6 +36,7 @@ struct NewsListScreen: View {
                         .onTapGesture {
                             print(item.article_id)
                             tap_newsid = ("\(item.article_id)")
+                            tap_newstitle = item.title
                             isSheetDetail = true
 
                         }
@@ -47,8 +49,8 @@ struct NewsListScreen: View {
         .task {
             viewmodel.request_news_list()
         }
-        .sheet(isPresented: $isSheetDetail) {
-            NewsDetailView(nid: $tap_newsid)
+        .fullScreenCover(isPresented: $isSheetDetail) {
+            NewsDetailView(nid: $tap_newsid,title: $tap_newstitle)
         }
     }
 }

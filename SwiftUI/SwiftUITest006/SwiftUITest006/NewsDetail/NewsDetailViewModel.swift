@@ -20,8 +20,6 @@ class NewsDetailViewModel: ObservableObject {
             }
         }
         
-//        AF.request(UrlStringList.news_detail+nid).response { response in
-//            debugPrint(response.data)
-//        }
+
     }
 }

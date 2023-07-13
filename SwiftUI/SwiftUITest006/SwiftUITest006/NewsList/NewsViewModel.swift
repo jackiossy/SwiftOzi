@@ -15,14 +15,20 @@ import Alamofire
 
 class NewsViewModel: ObservableObject {
     @Published var news_list: [NewsItemModel] = []
-    func request_news_list () {
-        AF.request(UrlStringList.news_list).responseDecodable(of: NewsListModel.self) { response in
+    
+    //传递page页码
+    func request_news_list (page: Int) {
+        AF.request(UrlStringList.news_list+"\(page)").responseDecodable(of: NewsListModel.self) { response in
             for item in response.value?.data ?? [] {
-                
+                print("********************* This is page \(page) data.************************")
                 print(item.title)
             }
             DispatchQueue.main.async {
-                self.news_list = response.value?.data ?? []
+                if page != 1 {
+                    self.news_list += response.value?.data ?? []
+                }else {
+                    self.news_list = response.value?.data ?? []
+                }
             }
 
         }

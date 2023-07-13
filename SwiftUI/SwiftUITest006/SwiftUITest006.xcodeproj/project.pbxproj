@@ -53,6 +53,7 @@
 		9443BF1A2A4DAA3600ADD5AA /* SwiftUITest006UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITest006UITests.swift; sourceTree = "<group>"; };
 		9443BF1C2A4DAA3600ADD5AA /* SwiftUITest006UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITest006UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9443BF2C2A4DAA9E00ADD5AA /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		9479D90A2A5FDC0000DB1123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		94CC69492A52EBF50058CCF0 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		94CC694D2A52FC840058CCF0 /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
 		94CC694F2A5300560058CCF0 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		9443BEFE2A4DAA3500ADD5AA /* SwiftUITest006 */ = {
 			isa = PBXGroup;
 			children = (
+				9479D90A2A5FDC0000DB1123 /* Info.plist */,
 				94CC69512A53007E0058CCF0 /* Common.swift */,
 				94CC694C2A52FC6F0058CCF0 /* NewsDetail */,
 				94CC694B2A52FC5D0058CCF0 /* NewsList */,
@@ -472,6 +474,7 @@
 				DEVELOPMENT_TEAM = LHXHCYAG8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUITest006/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +504,7 @@
 				DEVELOPMENT_TEAM = LHXHCYAG8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUITest006/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

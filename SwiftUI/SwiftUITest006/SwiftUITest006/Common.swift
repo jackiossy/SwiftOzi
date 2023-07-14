@@ -11,7 +11,7 @@ import SwiftUI
 
 
 struct UrlStringList {
-    static let news_list = "https://kkjapi.mydrivers.com/api/contents/listv2.ashx?cid=0&istop=0&maxid=0&sign=-261143547&udid=5257288900054519417&xaid=cd07d3291ae28a1e75a80b9c5263c7ee9f80f865&tid="
+    static let news_list = "https://kkjapi.mydrivers.com/api/contents/listv2.ashx?istop=0&maxid=0&sign=-261143547&udid=5257288900054519417&xaid=cd07d3291ae28a1e75a80b9c5263c7ee9f80f865&tid=1&cid="
     
     
     static let news_detail = "https://kkjapi.mydrivers.com/api/3/contents/details?sign=-261143547&udid=5257288900054519417&version=2.3.1&xaid=cd07d3291ae28a1e75a80b9c5263c7ee9f80f865&nids="

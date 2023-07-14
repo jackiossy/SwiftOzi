@@ -19,30 +19,25 @@ struct NewsListScreen: View {
     
     @State private var page: Int = 1 //最新的page
     
-    
-
 
     var body: some View {
         NavigationStack {
-            List {
+            ScrollView {
                 LazyVStack {
                     ForEach(viewmodel.news_list, id: \.self) { item in
-                         HStack {
-                            WebImage(url: URL(string: item.imgs))
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 120,height: 80)
-                                .cornerRadius(5)
-                            Text(item.title)
-                                .font(.callout)
-                                .bold()
-                        }
-                         .onAppear() {
-                             if viewmodel.news_list.last == item {
-                                 page += 1
-                                 viewmodel.request_news_list(page: page)
-                             }
-                         }
+                        
+                        if (viewmodel.news_list.last == item) {
+                            NewsCellView(item: item, isLast: true, viewmodel: viewmodel)
+                                .onTapGesture {
+                                    print(item.article_id)
+                                    tap_newsid = ("\(item.article_id)")
+                                    tap_newstitle = item.title
+                                    isSheetDetail = true
+
+                                }
+
+                        }else {
+                            NewsCellView(item: item, isLast: false, viewmodel: viewmodel)
 
                             .onTapGesture {
                                 print(item.article_id)
@@ -51,22 +46,61 @@ struct NewsListScreen: View {
                                 isSheetDetail = true
 
                             }
+
+                        }
+                      
+
+
                     }
 
                 }
             }
             .navigationTitle("Esimo News")
             .refreshable {
-                viewmodel.request_news_list(page: page)
+                viewmodel.news_list = []
+                viewmodel.page = 1
+                viewmodel.request_news_list()
             }
 
         }
         .task {
-            viewmodel.request_news_list(page: page)
+            viewmodel.request_news_list()
         }
         .fullScreenCover(isPresented: $isSheetDetail) {
             NewsDetailView(nid: $tap_newsid,title: $tap_newstitle)
         }
+    }
+}
+
+
+struct NewsCellView : View {
+    
+    var item: NewsViewModel.NewsItemModel
+    var isLast: Bool
+    @ObservedObject var viewmodel: NewsViewModel
+    
+    var body: some View  {
+        HStack {
+           WebImage(url: URL(string: item.imgs))
+               .resizable()
+               .scaledToFill()
+               .frame(width: 120,height: 80)
+               .cornerRadius(5)
+            
+            if self.isLast {
+                Text(item.title).font(.callout).bold()
+                    .onAppear {
+                        print("request more")
+                        viewmodel.request_news_list()
+                    }
+            } else {
+                Text(item.title).font(.callout).bold()
+            }
+        
+       }
+        .padding()
+        .padding(.top, -15)
+
     }
 }
     
